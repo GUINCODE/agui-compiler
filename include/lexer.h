@@ -1,5 +1,7 @@
 #ifndef BARRY_LEXER_H
 #define BARRY_LEXER_H
+
+
 #include <stdint.h>
 #include <stdlib.h>
 
@@ -32,12 +34,14 @@ typedef struct{
 
 typedef struct TokenList{
     Token token;
-    struct TokenList *next;
+    struct TokenList *prev;
 } TokenList;
 
- uint8_t  *read_file(char *filename);
- TokenList *new_token_list();
- void  add_token(TokenList **tokenList, uint8_t *value, size_t size_val);
+uint8_t *read_file(char *filename);
+TokenList *new_token_list();
+ void add_token(TokenList **tokenList, uint8_t *value, size_t size_val);
+
 
 #endif //BARRY_LEXER_H
+
 
